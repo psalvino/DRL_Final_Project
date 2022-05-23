@@ -1,0 +1,54 @@
+%{
+# Per-trial data for the towers task
+-> behavior.BehavioralSession
+trial_id                    :    int                     # number id of the trial
+---
+maze_id=null                :    int                     # ID of current maze
+main_maze_id=null           :    int                     # ID of current main maze
+trial_type=null             :    enum('L', 'R')          # reward location in this trial, left or right
+choice=null                 :    enum('L', 'R', 'nil')   # choice of this trial, left or right
+trial_abs_start_time=null   :    float                   # absolute start time of the trial relative to the beginning of the session
+trial_abs_start_iter=null   :    float                   # absolute start time of the trial relative to the beginning of the session
+num_towers_right=null       :    int                     # Number of towers shown to the right x number of trials
+num_towers_left=null        :    int                     # Number of towers shown to the left x number of trials
+num_towers_delta=null       :    int                     # Number of towers shown, right - left 
+num_towers_total=null       :    int                     # Number of towers shown, right + left 
+tower_onset_left=null       :    blob                    # onset time of the cues on the left (only for the present ones)
+tower_onset_right=null      :    blob                    # onset time of the cues on the right (only for the present ones)
+tower_offset_left=null      :    blob                    # offset time of the cues on the left (only for the present ones)
+tower_offset_right=null     :    blob                    # offset time of the cues on the right (only for the present ones)
+tower_onset_left_iter=null  :    blob                    # onset iteration of the cues on the left (only for the present ones)
+tower_onset_right_iter=null :    blob                    # onset iteration of the cues on the right (only for the present ones)
+tower_offset_left_iter=null :    blob                    # offset iteration of the cues on the left (only for the present ones)
+tower_offset_right_iter=null:    blob                    # offset iteration of the cues on the right (only for the present ones)
+tower_pos_left=null         :    blob                    # position of the cues on the left (only for the present ones)
+tower_pos_right=null        :    blob                    # position of the cues on the right (only for the present ones)
+trial_duration=null         :    float                   # duration of the entire trial in seconds
+trial_duration_iter=null    :    int                     # duration of the entire trial in iterations
+excess_travel=null          :    float                   # metric that indicates if mice travelled on a straight line
+viewangle_by_cm=null        :    blob                    # unique view angle value per cm of maze (first time that cm is crossed)
+speed_by_cm=null            :    blob                    # instantaneous speed per cm
+mean_speed_stem=null        :    float                   # average speed for the maze stem
+timestamp_by_cm=null        :    blob                    # unique time stamp in sec per cm of maze (first time that cm is crossed)
+cm_range=null               :    blob                    # [first last] cm used to calculate *_by_cm
+i_arm_entry=null            :    int                     # the index of the time series when the mouse enters the side arm
+i_context_entry=null        :    int                     # the index of the time series when the mouse enters the task-context cue zone
+i_cue_entry=null            :    int                     # the index of the time series when the mouse neters the cue zone
+i_mem_entry=null            :    int                     # the index of the time series when the mouse enters the memory zone
+i_turn=null                 :    int                     # the index of the time series when the mouse starts a turn
+i_choice_made=null          :    int                     # the index of the time series when the mouse enters the choice zone and trial stops
+i_reward=null               :    int                     # the index of the time series when the mouse receives a reward
+i_iti=null                  :    int                     # the index of the time series when iti starts
+t_arm_entry=null            :    float                   # time when the mouse enters the side arm
+t_context_entry=null        :    float                   # time when the mouse enters the task-context cue zone
+t_cue_entry=null            :    float                   # time when the mouse neters the cue zone
+t_mem_entry=null            :    float                   # time when the mouse enters the memory zone
+t_turn=null                 :    float                   # time when the mouse enters side arm
+t_choice_made=null          :    float                   # time when the mouse enters the choice zone and trial stops
+t_reward=null               :    float                   # time when the mouse receives a reward
+t_iti=null                  :    float                   # time when iti starts
+trial_prior_p_right=null    :    float                   # prior probablity of drawing an 'R' trial type for this trial
+reward_amount=null          :    float                   # amount of reward received, in uL 
+block_performance=null      :    float                   # overall performance for the contiguous block of trials in this maze
+is_first_trial_of_block=null:    tinyint                 # boolean, true if this is the first trial in a contiguous block of trials in this maze
+%}
